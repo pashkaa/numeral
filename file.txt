@@ -1,0 +1,249 @@
+#include <iostream>
+#include <string>
+#include "describe.h"
+
+int main()
+{
+    std::string choice,choice2;
+    int number;
+    std::cout<<"Avaible numeral systems : Binary(2),Tripple(3),Octal(8),Decimal(10),Hexadecimal(16)."<<std::endl;
+    Start:
+    std::cout<<"Hello,enter your numeral system : ";
+    std::cin>>choice;
+
+
+    if (choice == "Binary" || choice == "2")
+            {
+                std::cout<<"Enter your number in Binar numeral system : ";
+                std::cin>>number;
+                int n = how_many(number);
+                if (protect(number,1)>0)
+                    {
+                        goto Start;
+                    }
+                if (number == 0)
+                {
+                    std::cout<<"Your number can't be 0."<<std::endl;
+                    goto Start;
+                }
+                std::cout<<"Enter numeral system in which you want to transform your number : ";
+                std::cin>>choice2;
+                    if (choice2 == "Binary" || choice2 == "2")
+                        {
+                            std::cout<<"Your number is : "<<number<<std::endl;
+                        }
+                    else if (choice2 == "Tripple" || choice2 == "3")
+                        {
+                            std::cout<<"Your number is : ";
+                            from2to3(number,n);
+                        }
+                    else if (choice2 == "Octal" || choice2 == "8")
+                        {
+                            from2to8(number,n);
+                        }
+                    else if (choice2 == "Decimal" || choice2 == "10")
+                        {
+                        std::cout<<"Your number is : ";
+                        from2to10end(number,n);
+                        }
+                    else if (choice2 == "Hexadecimal" || choice2 == "16")
+                        {
+                            std::cout<<"Your number is : ";
+                            from2to16(number,n);
+                        }
+
+                else
+                    {
+                        std::cout<<"Ohh,sorry,try again!"<<std::endl;
+                        goto Start;
+                    }
+            }
+
+    else if (choice == "Tripple" || choice == "3")
+        {
+                std::cout<<"Enter your number in Tripple numeral system : ";
+                std::cin>>number;
+                if (protect(number,2)>0)
+                    {
+                        goto Start;
+                    }
+                if (number == 0)
+                {
+                    std::cout<<"Your number can't be 0."<<std::endl;
+                    goto Start;
+                }
+                else
+                    {
+                        std::cout<<"Enter numeral system in which you want to transform your number : ";
+                        std::cin>>choice2;
+                            if (choice2 == "Binary" || choice2 == "2")
+                                {
+                                    std::cout<<"Your number is : ";
+                    from3to2(number);
+                    }
+                    else if (choice2 == "Tripple" || choice2 == "3")
+                    {
+                    std::cout<<"Your number is : "<<number<<std::endl;
+                    }
+                    else if (choice2 == "Octal" || choice2 == "8")
+                        {
+                    std::cout<<"Your number is : ";
+                    from3to8(number);
+                    }
+                    else if (choice2 == "Decimal" || choice2 == "10")
+                        {
+                            std::cout<<"Your number is : "<<from3to10(number)<<std::endl;
+                        }
+                    else if (choice2 == "Hexadecimal" || choice2 == "16")
+                        {
+                            from3to16(number);
+                        }
+                    else
+                    {
+                        std::cout<<"Ohh,sorry,try again!"<<std::endl;
+                        goto Start;
+                    }
+                    }
+        }
+
+    else if (choice == "Octal" || choice == "8")
+            {
+                std::cout<<"Enter your number in Octal numeral system : ";
+                std::cin>>number;
+                if (protect(number,7)>0)
+                    {
+                        goto Start;
+                    }
+                if (number == 0)
+                    {
+                        std::cout<<"Your number can't be 0."<<std::endl;
+                        goto Start;
+                    }
+                else {
+                    std::cout<<"Enter numeral system in which you want to transform your number : ";
+                    std::cin>>choice2;
+                    if (choice2 == "Binary" || choice2 == "2")
+                        {
+                            from8to2(number);
+                        }
+                    else if (choice2 == "Tripple" || choice2 == "3")
+                        {
+                            from8to3(number);
+                        }
+                    else if (choice2 == "Octal" || choice2 == "8")
+                        {
+                            std::cout<<"Your number is : "<<number<<std::endl;
+                        }
+                    else if (choice2 == "Decimal" || choice2 == "10")
+                        {
+                            std::cout<<"Your number is : ";
+                            std::cout<<from8to10(number)<<std::endl;
+                        }
+                    else if (choice2 == "Hexadecimal" || choice2 == "16")
+                        {
+                            from8to16(number);
+                        }
+                    else
+                        {
+                            std::cout<<"Ohh,sorry,try again!"<<std::endl;
+                            goto Start;
+                        }
+                    }
+            }
+
+
+    else if (choice == "Decimal" || choice == "10")
+            {
+                int number;
+                std::cout<<"Enter your number in Decimal numeral system : ";
+                std::cin>>number;
+                std::cout<<"Enter numeral system in which you want to transform your number : ";
+                std::cin>>choice2;
+
+               if( protect10(number) > 0)
+               {
+                    std::cout<<"There are bad elements in your number : Mayber 0 or smaller than 0."<<std::endl;
+               } else
+                {
+
+                    if (choice2 == "Binary" || choice2 == "2")
+                        {
+                            std::cout<<"Your number is : ";
+                            from10to2(number);
+                        }
+                    else if (choice2 == "Tripple" || choice2 == "3")
+                        {
+                            std::cout<<"Your number is : ";
+                            from10to3(number);
+                        }
+                    else if (choice2 == "Octal" || choice2 == "8")
+                        {
+                            std::cout<<"Your number is : ";
+                            from10to8(number);
+                        }
+                    else if (choice2 == "Decimal" || choice2 == "10")
+                        {
+                            std::cout<<"Your number is : "<<number<<std::endl;
+                        }
+                    else if (choice2 == "Hexadecimal" || choice2 == "16")
+                        {
+                            std::cout<<"Your number is : ";
+                            from10to16(number);
+                        }
+                    else
+                        {
+                            std::cout<<"Ohh,sorry,try again!"<<std::endl;
+                            goto Start;
+                        }
+            }
+
+        }
+    else  if (choice == "Hexadecimal" || choice == "16")
+            {
+                std::cout<<"Enter your number in Hexadecimal numeral system : ";
+                std::string choice2;
+                std::string number;
+                std::cin>>number;
+                char arr[number.length()];
+                int i;
+                int n = sizeof(arr);
+                for (i = 0; i < n; i++)
+                {
+                    arr[i] = number[i];
+                }
+                std::cout<<"Enter numeral system in which you want to transform your number : ";
+                std::cin>>choice2;
+                    if (choice2 == "Binary" || choice2 == "2")
+                        {
+                        from16to2(arr,n);
+                        }
+                    else if (choice2 == "Tripple" || choice2 == "3")
+                        {
+                            from16to3(arr,n);
+                        }
+                    else if (choice2 == "Octal" || choice2 == "8")
+                        {
+                            from16to8(arr,n);
+                        }
+                    else if (choice2 == "Decimal" || choice2 == "10")
+                        {
+                            std::cout<<from16to10(arr,n)<<std::endl;
+                        }
+                    else if (choice2 == "Hexadecimal" || choice2 == "16")
+                        {
+                            std::cout<<"Your number is : ";
+                            printchar(arr,n);
+                        }
+                    else
+                        {
+                            std::cout<<"Ohh,sorry,try again!"<<std::endl;
+                        }
+            }
+
+    else
+        {
+            std::cout<<"Ohh,sorry,try again!"<<std::endl;
+        }
+    goto Start;
+    return 0;
+}
